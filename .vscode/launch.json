@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch FXAppLauncher",
+            "request": "launch",
+            "mainClass": "de.khudhur.FXAppLauncher",
+            "projectName": "OOP-internships"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "de.khudhur.App",
+            "projectName": "OOP-internships"
+        },
+        {
             "name": "Java",
             "type": "java",
             "request": "launch",
