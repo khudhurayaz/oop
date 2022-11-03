@@ -13,16 +13,16 @@ public class Ratespiel {
         int randomNumber = (int) (Math.random() * 101.0); //[0..100]
         int userNumber = 0;
         int anzahlAnVersuchen = 0;
-        Scanner scanner = new Scanner(System.in());
+        Scanner scanner = new Scanner(System.in);
         
         do {
             System.out.println("Zahl: ");
-            userNumber = scanner.nextInt;
+            userNumber = scanner.nextInt();
 
-            if(randomNumber > userNumber) {
+            if(randomNumber < userNumber) {
                 System.out.println("Zufallszahl ist kleiner!");
                 anzahlAnVersuchen++;
-            }else if(randomNumber < userNumber) {
+            }else if(randomNumber > userNumber) {
                 System.out.println("Zufallszahl ist groesser!");
                 anzahlAnVersuchen++;
             }else if(randomNumber == userNumber){
