@@ -11,6 +11,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -68,21 +70,17 @@
             <version>11</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.1</version>
+        </dependency>
+
     </dependencies>
 
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                    <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -95,7 +93,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>de.khudhur.test.FXApp</mainClass>
+                    <mainClass>de.khudhur.App</mainClass>
                 </configuration>
             </plugin>
 
@@ -113,7 +111,7 @@
                             <transformers>
                                 <transformer>
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>de.khudhur.test.FXAppLauncher</mainClass>
+                                    <mainClass>de.khudhur.FXAppLauncher</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
