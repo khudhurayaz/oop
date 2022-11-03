@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch VergleichVonArrays",
+            "request": "launch",
+            "mainClass": "de.khudhur.internship.internship3.VergleichVonArrays",
+            "projectName": "OOP-internships"
+        },
+        {
+            "type": "java",
             "name": "Launch FXAppLauncher",
             "request": "launch",
             "mainClass": "de.khudhur.FXAppLauncher",
