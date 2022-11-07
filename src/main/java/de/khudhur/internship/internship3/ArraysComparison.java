@@ -47,16 +47,16 @@ public class ArraysComparison {
      * Hilfsmethode
      * 
      * @param array erwartung um ein array zu sortieren
-     * @return sortiertes array wird es zurückgeliefert
+     * @return sortiertes array wird zurückgeliefert
      */
     static int[] sort(int[] array) {
         //
         for (int i = 0; i < array.length; i++) {
             for (int j = i; j < array.length; j++) {
-                if (array[i] > array[j]) {
-                    int temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
+                if (array[i] > array[j]) { //wenn i große als j ist
+                    int temp = array[i]; //in ein const variable speichern
+                    array[i] = array[j]; //j in i zuweisen
+                    array[j] = temp; //temp in j zuweisen
                 }
             }
         }
