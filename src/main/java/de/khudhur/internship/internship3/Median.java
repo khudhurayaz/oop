@@ -12,7 +12,7 @@ public class Median {
 
     /**
      * @param array erwartet einen Integer Array
-     * @return ein Integer Zahl als Rückgabewert
+     * @return ein integer Zahl als Rückgabewert
      */
     private static int median(int[] array) { // Anfang
 

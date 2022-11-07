@@ -2,7 +2,7 @@ package de.khudhur.internship.internship3;
 
 import java.util.Arrays;
 
-public class ArraysComparison {
+public class VergleichVonArrays {
     public static void main(String[] args) {
 
         int[] a = { 1, 2, 3, 4 }; // Input a
@@ -11,13 +11,14 @@ public class ArraysComparison {
         int[] d = { 1, 5, 3, 3 }; // Input d
 
         // Outputs
-        output(a, b);
-        output(c, d);
+        output(a, b, "Array a mit Array b Vergleichen: ");
+        output(c, d, "Array c mit Array d Vergleichen: ");
+
     }
 
     /**
-     * @param a erwartung eines int array
-     * @param b erwartung eines int array
+     * @param a erwartung eines array
+     * @param b erwartung eines array
      * @return boolean ob array gleich sind oder nicht
      */
     static boolean isEqual(int[] a, int[] b) {
@@ -25,7 +26,7 @@ public class ArraysComparison {
         int[] tempA = sort(a);
         int[] tempB = sort(b);
 
-        // Erster abfrage ob array die gleiche länge haben
+        // Erstes abfrage ob array die gleiche länge haben
         if (tempA.length != tempB.length)
             return false;
 
@@ -45,9 +46,9 @@ public class ArraysComparison {
 
     /**
      * Hilfsmethode
-     *
+     * 
      * @param array erwartung um ein array zu sortieren
-     * @return sortiertes array wird zurückgeliefert
+     * @return sortiertes array wird es zurückgeliefert
      */
     static int[] sort(int[] array) {
         //
@@ -63,15 +64,19 @@ public class ArraysComparison {
         return array;
     }
 
-    /**
-     * Hilfmethode für output
-     * @param a erwartung ein int[] array
-     * @param b erwartung ein weiteres int[] array
-     */
-    static void output(int[] a, int[] b) {
-        System.out.println("a=" + Arrays.toString(a) +
-                ", b=" + Arrays.toString(b) +
-                " -> Output:" + isEqual(a,b));
+    static void output(int[] a, int[] b, String text) {
+        System.out.println(text);
+        for (int i : a) {
+            System.out.print(i + " ");
+        }
+
+        System.out.print("? ");
+
+        for (int i : b) {
+            System.out.print(i + " ");
+        }
+
+        System.out.print(" = " + isEqual(a, b) + "\n");
     }
 
 }
