@@ -1,16 +1,16 @@
 package de.khudhur.internship.internship3;
 
 public class Bild {
-
     private int[][] bild; //Zweidimensionales Array
 
     /**
      * @return neues Array wird zurückgeliefert
      */
-    private int[][] flipAndInvert(){
+    private Bild flipAndInvert(){
         int row = bild.length; //Zeile
         int column = bild[0].length; //Spalte
         int[][] copyArray = copy(bild); //temporer
+        Bild tempBild = new Bild(); //Neues Bild objekt erstellen
 
         // Umwandeln von Weiß auf Schwarz
         // Weiß = 1, Schwarz = 0
@@ -24,16 +24,20 @@ public class Bild {
             }
         }
 
-        for (int i = 0; i < copyArray.length; i++) {
-            for (int j = 0; j < copyArray[i].length; j++) {
+        int[][] newArray = new int[row][column];
+        //reverse copyArray
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
                 int[] temp = copyArray[i];
-                copyArray[i] = copyArray[copyArray.length-i-1];
-                copyArray[copyArray.length-i-1] = temp;
+                newArray[i][j] = copyArray[copyArray.length-i-1][j];
+                newArray[copyArray.length-1-i] = temp;
             }
         }
 
-        return copyArray;
+        tempBild.setBild(newArray);//binäres und flipAndInvert bild übergeben
+        return tempBild;
     }
+
 
     public void ausgabe(){
         //Überprüfe, ob ein binäres Bild enthält
@@ -48,18 +52,10 @@ public class Bild {
 
         //Ausgabe nach flipAndInvert
         System.out.println("\nBild nach flipAndInvert()");
-        setBild(flipAndInvert());
-        //arrayAusgabe(getBild());
-        //Flip, plätze tauschen, nur Zeilen
-        for (int i = 0; i < getBild().length; i++) {
-            for (int j = 0; j < getBild()[i].length; j++) {
-                System.out.print(getBild()[getBild().length - i - 1][j] + " ");
-            }
-            System.out.println();
-        }
+        Bild tempBild = flipAndInvert();
+        setBild(tempBild.getBild());
+        arrayAusgabe(getBild());
     }
-
-
 
     /**
      * @param array erwartung eines array um es zu Kopieren
