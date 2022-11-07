@@ -2,7 +2,7 @@ package de.khudhur.internship.internship3;
 
 import java.util.Arrays;
 
-public class VergleichVonArrays {
+public class ArraysComparison {
     public static void main(String[] args) {
 
         int[] a = { 1, 2, 3, 4 }; // Input a
