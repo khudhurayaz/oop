@@ -2,23 +2,22 @@ package de.khudhur.internship.internship3;
 
 import java.util.Arrays;
 
-public class VergleichVonArrays {
+public class ArraysComparison {
     public static void main(String[] args) {
 
         int[] a = { 1, 2, 3, 4 }; // Input a
         int[] b = { 3, 1, 6, 2 }; // Input b
         int[] c = { 3, 5, 1, 3 }; // Input c
         int[] d = { 1, 5, 3, 3 }; // Input d
-
+        
         // Outputs
-        output(a, b, "Array a mit Array b Vergleichen: ");
-        output(c, d, "Array c mit Array d Vergleichen: ");
-
+        output(a, b);
+        output(c, d);
     }
 
     /**
-     * @param a erwartung eines array
-     * @param b erwartung eines array
+     * @param a erwartung eines int array
+     * @param b erwartung eines int array
      * @return boolean ob array gleich sind oder nicht
      */
     static boolean isEqual(int[] a, int[] b) {
@@ -26,7 +25,7 @@ public class VergleichVonArrays {
         int[] tempA = sort(a);
         int[] tempB = sort(b);
 
-        // Erstes abfrage ob array die gleiche länge haben
+        // Erster abfrage ob array die gleiche länge haben
         if (tempA.length != tempB.length)
             return false;
 
@@ -48,7 +47,7 @@ public class VergleichVonArrays {
      * Hilfsmethode
      * 
      * @param array erwartung um ein array zu sortieren
-     * @return sortiertes array wird es zurückgeliefert
+     * @return sortiertes array wird zurückgeliefert
      */
     static int[] sort(int[] array) {
         //
@@ -64,19 +63,15 @@ public class VergleichVonArrays {
         return array;
     }
 
-    static void output(int[] a, int[] b, String text) {
-        System.out.println(text);
-        for (int i : a) {
-            System.out.print(i + " ");
-        }
-
-        System.out.print("? ");
-
-        for (int i : b) {
-            System.out.print(i + " ");
-        }
-
-        System.out.print(" = " + isEqual(a, b) + "\n");
+    /**
+    * Hilfmethode für output
+    * @param a erwartung ein int[] array
+    * @param b erwartung ein weiteres int[] array
+    */
+    static void output(int[] a, int[] b) {
+        System.out.println("a=" + Arrays.toString(a) +
+                           ", b=" + Arrays.toString(b) + 
+                           " -> Output:" + isEqual(a,b));
     }
 
 }
