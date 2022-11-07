@@ -18,7 +18,7 @@ public class ArraysComparison {
     /**
      * @param a erwartung eines array
      * @param b erwartung eines array
-     * @return boolean ob array gleich sind oder nicht
+     * @return boolean, ob array gleich sind oder nicht
      */
     static boolean isEqual(int[] a, int[] b) {
         // Zuerst werden die Arrays sortiert,
