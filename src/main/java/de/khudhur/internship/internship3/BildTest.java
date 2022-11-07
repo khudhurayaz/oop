@@ -14,12 +14,12 @@ public class BildTest {
         //Testbild 1
         bild.setBild(testBild1);
         System.out.println();
-        //bild.ausgabe();
+        bild.ausgabe();
 
         //Testbild 2
         bild.setBild(testBild2);
         System.out.println();
-        //bild.ausgabe();
+        bild.ausgabe();
 
     }
 }
