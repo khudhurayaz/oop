@@ -110,7 +110,7 @@
                         <configuration>
                             <transformers>
                                 <transformer>
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>de.khudhur.FXAppLauncher</mainClass>
                                 </transformer>
                             </transformers>
@@ -119,6 +119,6 @@
                 </executions>
             </plugin>
         </plugins>
-    </build>         
+    </build>
 
 </project>
