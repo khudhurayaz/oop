@@ -11,9 +11,8 @@ public class ArraysComparison {
         int[] d = { 1, 5, 3, 3 }; // Input d
 
         // Outputs
-        output(a, b, "Array a mit Array b Vergleichen: ");
-        output(c, d, "Array c mit Array d Vergleichen: ");
-
+        output(a, b);
+        output(c, d);
     }
 
     /**
@@ -22,7 +21,8 @@ public class ArraysComparison {
      * @return boolean ob array gleich sind oder nicht
      */
     static boolean isEqual(int[] a, int[] b) {
-        // Zuerst werden die Array's sortiert
+        // Zuerst werden die Arrays sortiert,
+        // keine veränderung! Wird nur temporer gespeichert und sortiert.
         int[] tempA = sort(a);
         int[] tempB = sort(b);
 
@@ -30,10 +30,9 @@ public class ArraysComparison {
         if (tempA.length != tempB.length)
             return false;
 
-        /**
-         * solange tempA[i] nicht gleich tempB[i] ist,
-         * ist die rückgabewert false.
-         */
+
+         //solange tempA[i] nicht gleich tempB[i] ist,
+         //ist die rückgabewert false.
         for (int i = 0; i < tempA.length; i++) {
             if (tempA[i] != tempB[i]) {
                 return false;
@@ -64,19 +63,15 @@ public class ArraysComparison {
         return array;
     }
 
-    static void output(int[] a, int[] b, String text) {
-        System.out.println(text);
-        for (int i : a) {
-            System.out.print(i + " ");
-        }
-
-        System.out.print("? ");
-
-        for (int i : b) {
-            System.out.print(i + " ");
-        }
-
-        System.out.print(" = " + isEqual(a, b) + "\n");
+    /**
+     * Ausgabe
+     * @param a Erwartung eines Arrays zu überprüfen - erste Array
+     * @param b Erwartung eines Arrays zu überprüfen - zweite Array
+     */
+    static void output(int[] a, int[] b) {
+        System.out.println("Input: a=" + Arrays.toString(a) + ", " +
+                           "b=" + Arrays.toString(b) +
+                           " -> Output:" + isEqual(a,b));
     }
 
 }
