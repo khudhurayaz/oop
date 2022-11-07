@@ -12,7 +12,7 @@ public class Median {
 
     /**
      * @param array erwartet einen Integer Array
-     * @return ein integer Zahl als Rückgabewert
+     * @return ein Integer Zahl als Rückgabewert
      */
     private static int median(int[] array) { // Anfang
 
@@ -20,14 +20,14 @@ public class Median {
         System.out.println("Array: ");
 
         // Array output
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (int j : array) {
+            System.out.print(j + " ");
         }
         System.out.println();// blank line
 
         // operation: prüfe ob modul 2 gleich null ist
         if (array.length % 2 == 0) {
-            // dann die beiden mittleren Zahlen zusammenaddieren und durch Zwei teilen.
+            // dann die beiden mittleren Zahlen zusammenaddieren und durch Zweiteilen.
             return (int) ((array[array.length / 2] + array[(array.length / 2) - 1]) / 2);
         } else {
             /**
