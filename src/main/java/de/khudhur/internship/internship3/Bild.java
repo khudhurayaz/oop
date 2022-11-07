@@ -7,7 +7,7 @@ public class Bild {
     /**
      * @return neues Array wird zurückgeliefert
      */
-    public Bild flipAndInvert(){
+    private int[][] flipAndInvert(){
         int row = bild.length; //Zeile
         int column = bild[0].length; //Spalte
         int[][] temp1 = copy(bild); //temporer
@@ -16,7 +16,7 @@ public class Bild {
         // Weiß = 1, Schwarz = 0
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
-                if (temp1[i][j] == 1){ //wenn es Weiß ist umwandeln in Schwarz
+                if (bild[i][j] == 1){ //wenn es Weiß ist umwandeln in Schwarz
                     temp1[i][j] = 0; //BLACK
                 }else { //Ansonsten, wenn es Schwarz ist, umwandeln in Weiß
                     temp1[i][j] = 1; //WHITE
@@ -24,17 +24,15 @@ public class Bild {
             }
         }
 
-        //Flip, plätze tauschen, nur Zeilen
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                int[] tmp = temp1[i]; //Temporer array für eine Zeile
-                temp1[i] = temp1[temp1.length - i - 1]; //Zeile um 1 reduzieren
-                temp1[temp1.length - i - 1] = tmp; //Zeile verschieben
+        for (int i = 0; i < temp1.length; i++) {
+            for (int j = 0; j < temp1[i].length; j++) {
+                int[] temp = temp1[i];
+                temp1[i] = temp1[temp1.length-i-1];
+                temp1[temp1.length-i-1] = temp;
             }
         }
-        Bild b = new Bild();
-        b.setBild(temp1);
-        return b;
+
+        return temp1;
     }
 
     public void ausgabe(){
@@ -50,10 +48,18 @@ public class Bild {
 
         //Ausgabe nach flipAndInvert
         System.out.println("\nBild nach flipAndInvert()");
-        Bild b = flipAndInvert();
-        arrayAusgabe(b.getBild());
-
+        setBild(flipAndInvert());
+        //arrayAusgabe(getBild());
+        //Flip, plätze tauschen, nur Zeilen
+        for (int i = 0; i < getBild().length; i++) {
+            for (int j = 0; j < getBild()[i].length; j++) {
+                System.out.print(getBild()[getBild().length - i - 1][j] + " ");
+            }
+            System.out.println();
+        }
     }
+
+
 
     /**
      * @param array erwartung eines array um es zu Kopieren
