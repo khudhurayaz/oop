@@ -1,7 +1,9 @@
 package de.khudhur.internship.internship3;
 
 public class Bild {
+
     private int[][] bild; //Zweidimensionales Array
+
 
     /**
      * @return neues Array wird zurückgeliefert
@@ -9,16 +11,19 @@ public class Bild {
     private Bild flipAndInvert(){
         int row = bild.length; //Zeile
         int column = bild[0].length; //Spalte
-        int[][] copyArray = copy(bild); //temporer
+        int[][] copyArray = copy(bild); //temporär
         Bild tempBild = new Bild(); //Neues Bild objekt erstellen
 
         // Umwandeln von Weiß auf Schwarz
         // Weiß = 1, Schwarz = 0
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
-                if (bild[i][j] == 1){ //wenn es Weiß ist umwandeln in Schwarz
+                //wenn es Weiß ist umwandeln in Schwarz
+                if (bild[i][j] == 1){
                     copyArray[i][j] = 0; //BLACK
-                }else { //Ansonsten, wenn es Schwarz ist, umwandeln in Weiß
+                }
+                //Ansonsten, wenn es Schwarz ist, umwandeln in Weiß
+                else {
                     copyArray[i][j] = 1; //WHITE
                 }
             }
@@ -34,7 +39,8 @@ public class Bild {
             }
         }
 
-        tempBild.setBild(newArray);//binäres und flipAndInvert bild übergeben
+        //binäres und flipAndInvert bild übergeben
+        tempBild.setBild(newArray);
         return tempBild;
     }
 
@@ -64,7 +70,7 @@ public class Bild {
     private int[][] copy(int[][] array){
         int row = array.length; //Zeile
         int column = array[0].length; //Spalte
-        int[][] tempArray = new int[row][column]; //temporer
+        int[][] tempArray = new int[row][column]; //temporär
 
         //array kopieren
         for (int i = 0; i < row; i++) {
@@ -102,4 +108,5 @@ public class Bild {
     public void setBild(int[][] bild) {
         this.bild = bild;
     }
+
 }

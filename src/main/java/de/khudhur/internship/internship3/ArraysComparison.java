@@ -3,33 +3,21 @@ package de.khudhur.internship.internship3;
 import java.util.Arrays;
 
 public class ArraysComparison {
-    public static void main(String[] args) {
-
-        int[] a = { 1, 2, 3, 4 }; // Input a
-        int[] b = { 3, 1, 6, 2 }; // Input b
-        int[] c = { 3, 5, 1, 3 }; // Input c
-        int[] d = { 1, 5, 3, 3 }; // Input d
-
-        // Outputs
-        output(a, b);
-        output(c, d);
-    }
 
     /**
      * @param a erwartung eines array
      * @param b erwartung eines array
      * @return boolean, ob array gleich sind oder nicht
      */
-    static boolean isEqual(int[] a, int[] b) {
+     private boolean isEqual(int[] a, int[] b) {
         // Zuerst werden die Arrays sortiert,
-        // keine veränderung! Wird nur temporer gespeichert und sortiert.
+        // keine veränderung! Wird nur temporär gespeichert und sortiert.
         int[] tempA = sort(a);
         int[] tempB = sort(b);
 
         // Erstes abfrage ob array die gleiche länge haben
         if (tempA.length != tempB.length)
             return false;
-
 
          //solange tempA[i] nicht gleich tempB[i] ist,
          //ist die rückgabewert false.
@@ -38,25 +26,27 @@ public class ArraysComparison {
                 return false;
             }
         }
-
         // Ansonsten ist es true
         return true;
     }
 
     /**
-     * Hilfsmethode
+     * Hilfsmethode - Sortierung ist temporär
      * 
      * @param array erwartung um ein array zu sortieren
      * @return sortiertes array wird zurückgeliefert
      */
-    static int[] sort(int[] array) {
-        //
+     private int[] sort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = i; j < array.length; j++) {
-                if (array[i] > array[j]) { //wenn i große als j ist
-                    int temp = array[i]; //in ein const variable speichern
-                    array[i] = array[j]; //j in i zuweisen
-                    array[j] = temp; //temp in j zuweisen
+                //wenn i große als j ist
+                if (array[i] > array[j]) {
+                    //in ein const variable speichern
+                    int temp = array[i];
+                    //j in i zuweisen
+                    array[i] = array[j];
+                    //temp in j zuweisen
+                    array[j] = temp;
                 }
             }
         }
@@ -68,7 +58,7 @@ public class ArraysComparison {
      * @param a Erwartung eines Arrays zu überprüfen - erste Array
      * @param b Erwartung eines Arrays zu überprüfen - zweite Array
      */
-    static void output(int[] a, int[] b) {
+     public void output(int[] a, int[] b) {
         System.out.println("Input: a=" + Arrays.toString(a) + ", " +
                            "b=" + Arrays.toString(b) +
                            " -> Output:" + isEqual(a,b));
