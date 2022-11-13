@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class ArraysComparison {
 
     /**
-     * @param a erwartung eines array
-     * @param b erwartung eines array
-     * @return boolean, ob array gleich sind oder nicht
+     * @param a Erwartet ein Array
+     * @param b Erwartet ein Array
+     * @return boolean, ob Array gleich sind oder nicht
      */
      private boolean isEqual(int[] a, int[] b) {
         // Zuerst werden die Arrays sortiert,
@@ -15,7 +15,7 @@ public class ArraysComparison {
         int[] tempA = sort(a);
         int[] tempB = sort(b);
 
-        // Erstes abfrage ob array die gleiche länge haben
+        // Erstes abfrage, ob Array die gleiche länge haben
         if (tempA.length != tempB.length)
             return false;
 
@@ -33,7 +33,7 @@ public class ArraysComparison {
     /**
      * Hilfsmethode - Sortierung ist temporär
      * 
-     * @param array erwartung um ein array zu sortieren
+     * @param array Erwartung um ein Array zu sortieren
      * @return sortiertes array wird zurückgeliefert
      */
      private int[] sort(int[] array) {
@@ -55,8 +55,8 @@ public class ArraysComparison {
 
     /**
      * Ausgabe
-     * @param a Erwartung eines Arrays zu überprüfen - erste Array
-     * @param b Erwartung eines Arrays zu überprüfen - zweite Array
+     * @param a Erwartet, um ein Array zu überprüfen - erste Array
+     * @param b Erwartet, um ein Array zu überprüfen - zweite Array
      */
      public void output(int[] a, int[] b) {
         System.out.println("Input: a=" + Arrays.toString(a) + ", " +
