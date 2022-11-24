@@ -1,6 +1,7 @@
 package de.khudhur.internship.internship5;
 
 public class MyListTest {
+
     public static void main(String[] args) {
         MyList list = new MyList();
         //Neuen Elementen
@@ -34,4 +35,6 @@ public class MyListTest {
         }
         System.out.println();
     }
+
+
 }

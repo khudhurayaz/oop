@@ -241,4 +241,5 @@ public class MyList {
     public void setArray(int[] array) {
         this.array = array;
     }
+
 }
