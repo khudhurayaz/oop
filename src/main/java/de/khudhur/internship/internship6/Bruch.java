@@ -21,6 +21,11 @@ public class Bruch {
      * @return rückgabe wird ein Bruch Objekt sein
      */
     public Bruch add(Bruch f) {
+
+        if (getZaehler() == 0 || getNenner() == 0) {
+            System.err.println("Darf nullen nicht enthalten!");
+        }
+
         //Temporär
         Bruch auswertung = new Bruch(getZaehler(), getNenner());
 
