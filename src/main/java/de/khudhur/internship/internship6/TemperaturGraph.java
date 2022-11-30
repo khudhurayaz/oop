@@ -2,6 +2,7 @@ package de.khudhur.internship.internship6;
 
 public class TemperaturGraph {
 
+    //Attributen
     private int jahr;
     private final int[] list = new int[12];
 

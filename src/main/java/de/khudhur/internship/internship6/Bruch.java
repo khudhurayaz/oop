@@ -1,6 +1,7 @@
 package de.khudhur.internship.internship6;
 
 public class Bruch {
+
     //Attributen
     private int zaehler;
     private int nenner;
@@ -101,10 +102,11 @@ public class Bruch {
     }
 
     /**
-     * @return String Zeichenkette
+     * @return toString methode
      */
     @Override
     public String toString() {
         return "" + getZaehler() + "/" + getNenner();
     }
+
 }

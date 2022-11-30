@@ -1,6 +1,7 @@
 package de.khudhur.internship.internship6;
 
 public class TemperaturGraphTest {
+
     public static void main(String[] args) {
         //Objekt anlegen
         TemperaturGraph temperaturGraph = new TemperaturGraph(2004);

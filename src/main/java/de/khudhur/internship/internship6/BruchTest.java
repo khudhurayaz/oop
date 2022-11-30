@@ -1,6 +1,7 @@
 package de.khudhur.internship.internship6;
 
 public class BruchTest {
+
     public static void main(String[] args) {
         //Objekt 1, 8/7
         Bruch bruch1 = new Bruch(8, 7);
@@ -15,4 +16,5 @@ public class BruchTest {
         System.out.println("Addieren: " + add.toString());
         System.out.println("Multiplizieren: " + multiply.toString());
     }
+
 }
