@@ -53,6 +53,7 @@ public class PasswortGenerator {
         }
 
         this.passwort = str;
+
     }
 
     /**
