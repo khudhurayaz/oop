@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.khudhur.projects.exmatrikulation.controller.ExmatrikulationController">
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Exmatrikulation?">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox fx:id="content" alignment="CENTER" prefHeight="320.0" />
+            <HBox alignment="CENTER" minHeight="40.0">
+               <children>
+                  <Text fx:id="txtStatus" strokeType="OUTSIDE" strokeWidth="0.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
