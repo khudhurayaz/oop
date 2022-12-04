@@ -1,10 +1,5 @@
 package de.khudhur.internship.internship7;
 
-import javafx.css.Match;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class PasswortGenerator {
 
     private String passwort;
