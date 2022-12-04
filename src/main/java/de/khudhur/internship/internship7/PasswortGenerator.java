@@ -9,7 +9,7 @@ public class PasswortGenerator {
 
     private String passwort;
 
-    public void erstellePasswort(String passwort) throws Exception {
+    public void erstellePasswort(String passwort) {
 
         //Exception, wenn string null oder die länge 0 ist.
         if (passwort == null || passwort.length() == 0){
