@@ -2,8 +2,25 @@ package de.khudhur.internship.internship7;
 
 public class PasswortGenerator {
 
+    //Variable
     private String passwort;
 
+    /**
+     * Aufgabe 7. Teil a) Passwort
+     *  -> Exception, wenn passwort null oder leer ist.
+     *  -> regex um Zahlen und Sonderzeichen auszuschliessen.
+     *  -> arrayPasswort, aus passwort string zurückbekommen.
+     *  -> Variable satz -> type String -> für Kompletes Satz
+     *      ohne Zahlen und Sonderzeichen -> for-each schleife ist in verwendung.
+     *  -> Satz durch Leerzeichen trennen, um wörter zuerhalten.
+     *      -> for-schleife, nur die ersten Buchstaben Speichern
+     *  -> weitere schleife in verwendung, um in einer if-abfrage zu Fragen,
+     *      ob i durch 2 teilbar und gleich 0 ist.
+     *          -> erstes fall, trifft zu, wird Buchstabe kleingeschrieben
+     *          -> zweites fall, Buchstabe wird großgeschrieben.
+     *  -> Übergabe das erstellten Passwort
+     * @param passwort
+     */
     public void erstellePasswort(String passwort) {
 
         //Exception, wenn string null oder die länge 0 ist.
@@ -23,8 +40,7 @@ public class PasswortGenerator {
 
         //zusammenfügen in einem Satz
         String satz = "";
-        for (String str:
-             arrayPasswort) {
+        for (String str : arrayPasswort) {
             satz += str;
         }
 
@@ -47,6 +63,7 @@ public class PasswortGenerator {
             }
         }
 
+        //neues passwort übergeben
         this.passwort = str;
 
     }
@@ -57,4 +74,5 @@ public class PasswortGenerator {
     public void output(){
         System.out.println(passwort);
     }
+
 }
