@@ -1,6 +1,7 @@
 module OOP.internships {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
     exports de.khudhur;
     exports de.khudhur.projects.exmatrikulation;
