@@ -13,33 +13,31 @@ public class Bild {
     //Später Entfernen!!!
     private static final String PATH = "src/main/java/de/khudhur/internship/internship7/";
 
-    /**
-     * Variablen
-     */
-    private int width, height, brightness;
-    private String format, comment, fileName, verzeich;
+    private int brightness;
+    private String format;
+    private String comment;
+    private String fileName;
     private int[][] daten;
 
 
     /**
      * Aufgabe 7. Teil b) Verdrehte Bilder
-     *      ->try-catch block
-     *          -> Pfad für die eingegebenen dateinamen
-     *          -> abfrage ob, File lesbar ist
-     *              -> Ja, läuft das Program weiter
-     *              -> nein, gibt ein entsprechendes Exception aus
-     *          -> neue Scanner objekt erstellen
-     *          -> PGM-Format in format (von Typ String) speichern
-     *              -> abfrage ob, format P2 enthält
-     *              -> falls nicht, scanner schliessen und
+     *      → try-catch block
+     *          → Pfad für die eingegebenen dateinamen
+     *              → abfrage ob, File lesbar ist
+     *              → Ja, läuft das Program weiter
+     *              → nein, gibt ein entsprechendes Exception aus
+     *          → neue Scanner objekt erstellen
+     *          → PGM-Format in format (von Typ String) speichern
+     *              → abfrage ob, format P2 enthält
+     *              → falls nicht, scanner schliessen und
      *                  geeignetes Exception auswerfen
-     *                 -> Exception: Programm unterstützt nur P2 Format
-     *          -> Restlichen Parametern von PGM Datei ablesen und abspeichern.
-     *          -> 2D Array ablesen und abspeichern in daten - von typ int
-     *          -> scanner schliessen
-     *      -> Falls, probleme auftauchen
+     *                 → Exception: Programm unterstützt nur P2 Format
+     *          → Restlichen Parametern von PGM Datei ablesen und abspeichern.
+     *          → 2D Array ablesen und abspeichern in daten - von typ int
+     *          → scanner schliessen
+     *      → Falls, probleme auftauchen
      *          geeignetes Exception auswerfen
-     *
      *
      * @param dateiName um eine Datei zu lesen, benötigt das Programm der Dateiname
      * @throws Exception Exception abfangen, falls die .pgm Datei nicht lesbar ist oder
@@ -71,8 +69,11 @@ public class Bild {
 
             //Restlichen parametern in Klasse Bild abspeichern
             comment = in.nextLine();
-            width = in.nextInt();
-            height = in.nextInt();
+            /**
+             * Variablen
+             */
+            int width = in.nextInt();
+            int height = in.nextInt();
             brightness = in.nextInt();
 
             //Bild 2D Array von typ int ablesen und abspeichern
@@ -100,23 +101,23 @@ public class Bild {
      * Aufgabe 7. Teil c)
      * Die Klasse Bild wird um 2 Methoden erweitert.
      * Erste Methode ist schreibeBild(verzeichnis: String): void
-     *  -> daten - Überprüfung - 2D Array von Typ int
-     *  -> fileName / verzeichnis - String Variable
-     *  -> Pfad für verzeichnis
-     *  -> try-catch block und Exception geeignet abfangen
-     *      ->Pfad für fileName
-     *      ->abfrage ob, verzeichnis lesbar/vorhanden ist
-     *          ->ist vorhanden, wird die file datei entweder überschrieben
+     *  → daten - Überprüfung - 2D Array von Typ int
+     *  → fileName / verzeichnis - String Variable
+     *  → Pfad für verzeichnis
+     *  → try-catch block und Exception geeignet abfangen
+     *      → Pfad für fileName
+     *      → abfrage ob, verzeichnis lesbar/vorhanden ist
+     *          →ist vorhanden, wird die file datei entweder überschrieben
      *            (falls vorhanden)
-     *              -> oder wird ein neues Datei erstellt.
-     *          ->falls nicht erstelle ein neues Verzeichnis
-     *      -> abfrage ob, verzeichnis erstellt und Datei gelesen werden kann
-     *      ->erstelle ein StringBuilder
-     *          -> Alle parameter an StringBuilder übergeben
-     *      ->Files.write aufrufen
-     *          -> Ein Path pfad Angeben und ein parameter array von typ byte
+     *              → oder wird eine neue Datei erstellt.
+     *          → falls nicht erstelle ein neues Verzeichnis
+     *      → abfrage ob, verzeichnis erstellt und Datei gelesen werden kann
+     *      → erstelle ein StringBuilder
+     *          → Alle parameter an StringBuilder übergeben
+     *      → Files.write aufrufen
+     *          → Ein Path pfad Angeben und ein parameter array von typ byte
      *              übergeben
-     *  -> Falls, probleme auftauchen
+     *  → Falls, probleme auftauchen
      *     geeignetes Exception auswerfen
      *
      * @param verzeichnis Verzeichnisname von Typ String
@@ -133,7 +134,6 @@ public class Bild {
                             .format(Calendar.getInstance()
                                         .getTime())
                             + ".pgm";
-        this.verzeich = verzeichnis;
 
         //path für verzeichnis
         Path dir = Paths.get(PATH + verzeichnis);
@@ -188,20 +188,20 @@ public class Bild {
      * Aufgabe 7. Teil c)
      * Die Klasse Bild wird um 2 Methoden erweitert.
      * Zweite Methode ist rotiereBild(): void
-     *      -> Variablen
-     *          -> 2D Array von typ int - matrix
-     *          -> tRow von typ int
-     *          -> tCol von typ int
-     *          -> Temporäres 2D Array von typ int - rotatedMatrix
+     *      → Variablen
+     *          → 2D Array von typ int - matrix
+     *          → tRow von typ int
+     *          → tCol von typ int
+     *          → Temporäres 2D Array von typ int - rotatedMatrix
      *              -> mit der tRow, tCol größe
-     *      -> Rotieren - Schleife
-     *          width um 1 redusieren und subtrahieren mit aktuelle spalte,
+     *      → Rotieren - Schleife
+     *          width um 1 reduzieren und subtrahieren mit aktuelle spalte,
      *          ergibt eine neue Zeile (id)
      *
      *          die Schleife wiederholt sich bis zeile und spalte die
      *          länge von matrix
      *          erreicht haben.
-     *      -> rotiertes 2D Array übergeben an daten
+     *      → rotiertes 2D Array übergeben an daten
      */
     public void rotiereBild(){
         int[][] matrix = daten;
