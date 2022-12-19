@@ -115,6 +115,7 @@ public class OOPCode {
         //man auch mitspeichern, falls man später
         //mit dem Programm die transparent eines Bildes
         //erhalten und verändern möchte.
+
         int a = (p >> 24) & 0xff;
         //für rot
         int r = (p >> 16) & 0xff;
