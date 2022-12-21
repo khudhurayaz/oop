@@ -1,10 +1,5 @@
 package de.khudhur.internship.internship9.OOPCode;
 
-
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
-
 public class OOPCodeTest {
     private static final String PATH = "src/main/java/de/khudhur/internship/internship9/OOPCode/";
     public static void main(String[] args) throws Exception {
@@ -22,9 +17,6 @@ public class OOPCodeTest {
         System.out.println("print Boolean: "); //wenn es true ist, gibt es ein schwarzes punkt.
         new Codes<Boolean>().print(codeFuer3.getBool());
         System.out.println("OOPCode wäre: " + codeFuer3.encode());
-        codeFuer3.rotiereBild(); //90°
-        codeFuer3.rotiereBild(); //90°
-        System.out.println("OOPCode nach zwei umdrehungen wäre: " + codeFuer3.encode());
         System.out.println("----------------------------------------------");
 
 
@@ -55,7 +47,11 @@ public class OOPCodeTest {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
         System.out.println("print Boolean: ");
         new Codes<Boolean>().print(codeFuerBild.getBool());
-
+        System.out.println("OOPCode wäre: " + codeFuerBild.encode());
+        System.out.println("Größte OOPCode wäre: " + codeFuerBild.bigEncode());
+        System.out.println("Anzahl der Rotationen: " + codeFuerBild.getAnzahlRotationen());
+        System.out.println("print nochmal Boolean: ");
+        new Codes<Boolean>().print(codeFuerBild.getBool());
         System.out.println("OOPCode wäre: " + codeFuerBild.encode());
     }
 

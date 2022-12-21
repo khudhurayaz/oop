@@ -15,6 +15,7 @@ public class OOPCode {
 
     //NxN feldern
     private int size;
+    private int anzahlRotationen;
 
     /**
      * Wrapper Klasse von Typ Integer
@@ -56,6 +57,7 @@ public class OOPCode {
             endung = path.substring(lastDotIndex + 1);
 
         //Abfrage ob, endung ein dieser Formate nicht enthält.
+        assert endung != null;
         if (!endung.equalsIgnoreCase("png")
                 && endung.equalsIgnoreCase("jpg")
                 && endung.equalsIgnoreCase("jpeg"))
@@ -76,6 +78,7 @@ public class OOPCode {
         //data & bool mit image.getWidth und image.getHeight initialisieren
         data = new Integer[image.getWidth()][image.getHeight()];
         bool = new Boolean[image.getWidth()][image.getHeight()];
+        anzahlRotationen = 0;
         //alle boolean werte mit false initialisieren
         new Codes<>(bool).setCode(false);
 
@@ -104,7 +107,7 @@ public class OOPCode {
      *                    3        2         1        0
      * bit position    10987654 32109876 54321098 76543210
      * ------------   +--------+--------+--------+--------+
-     * bits           |AAAAAAAA|RRRRRRRR|GGGGGGGG|BBBBBBBB|
+     * bits           |........|RRRRRRRR|GGGGGGGG|BBBBBBBB|
      *
      * @param p erwartet einen Pixel int, um daraus die
      *          argb zu errechnen.
@@ -123,13 +126,9 @@ public class OOPCode {
         int g = (p >> 8) & 0xff;
         //für blau
         int b = (p) & 0xff;
-        //abfrage ob, r, g und b 0 beinhalten
+        //abfrage ob, r, g und b 0 beinhalten,
         //ja? gib true zurück
-        if (r == 0 && g == 0 && b == 0){
-            return true;
-        }
-        //für alles andere wird false zurückgeliefert
-        return false;
+        return r == 0 && g == 0 && b == 0;
     }
 
     /**
@@ -161,7 +160,7 @@ public class OOPCode {
                     //setze an der pos[i][j] true ein
                     getBool()[i][j] = true;
                 //für data die errechnete Zahl ein
-                data[i][j] = k;
+                getData()[i][j] = k;
                 //k um 2 dividieren
                 k /= 2;
             }
@@ -187,21 +186,23 @@ public class OOPCode {
      *      habe ich einfach kopiert! (Praktikum 7 - Bild .pgm files))
      */
     public void rotiereBild(){
-        Integer[][] matrix = data;
+
         //neue row, width von matrix wird übernommen
-        int tRow = matrix[0].length;
+        int tRow = data[0].length;
         //neue col, height von matrix wird übernommen
-        int tCol = matrix.length;
+        int tCol = data.length;
         //neues 2D Array
-        Integer[][] rotatedMatrix = new Integer[tRow][tCol];
+        Boolean[][] b = new Boolean[tRow][tCol];
 
         //Rotieren
-        for (int row = 0; row < matrix.length; row++)
-            for (int col = 0; col < matrix[0].length; col++)
-                rotatedMatrix[(tRow-1) - col][row] = matrix[row][col];
+        for (int row = 0; row < data.length; row++) {
+            for (int col = 0; col < data[0].length; col++) {
+                b[col][(tCol - 1) - row] = getBool()[row][col];
+            }
+        }
 
-        //rotiertes matrix an daten [von typ int 2D Array] übergeben
-        data = rotatedMatrix;
+        //setBool
+        setBool(b);
     }
 
     /**
@@ -213,14 +214,14 @@ public class OOPCode {
         //summe für OOPCode
         int sum = 0;
         //for-schleife aussen
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < getData().length; i++) {
             //fo-schleife innen
-            for (int j = 0; j < data[0].length; j++) {
+            for (int j = 0; j < getData()[0].length; j++) {
                 //abfrage welches Boolean an i, j stelle
                 //true liefert, (true für schwarz)
                 if (bool[i][j]){
                     //daten auslesen und aufsummen
-                    sum += data[i][j];
+                    sum += getData()[i][j];
                 }
             }
         }
@@ -228,6 +229,27 @@ public class OOPCode {
         return sum;
     }
 
+    public int bigEncode(){
+        int sum = 0;
+        int az = 0;
+        int first = encode();
+
+        while(true){
+            int current;
+            rotiereBild();
+            current = encode();
+            if (current > sum){
+                sum = current;
+                az++;
+            }
+
+            if (first == current){
+                break;
+            }
+        }
+        setAnzahlRotationen(az);
+        return sum;
+    }
 
     /**
      * Falls, man mit Zahlen anstatt Bildern arbeiten
@@ -257,14 +279,13 @@ public class OOPCode {
         return size;
     }
 
-    // Größe setzen
-    public void setSize(int size){
-        this.size = size;
-    }
-
     //getData
     public Integer[][] getData(){
         return data;
+    }
+
+    public void setData(Integer[][] data) {
+        this.data = data;
     }
 
     /**
@@ -280,4 +301,12 @@ public class OOPCode {
     public void setBool(Boolean[][] b){
         this.bool = b;
     }
+
+    public int getAnzahlRotationen() {
+        return anzahlRotationen;
+    }
+    public void setAnzahlRotationen(int anzahlRotationen) {
+        this.anzahlRotationen = anzahlRotationen;
+    }
+
 }
