@@ -59,8 +59,8 @@ public class OOPCode {
         //Abfrage ob, endung ein dieser Formate nicht enthält.
         assert endung != null;
         if (!endung.equalsIgnoreCase("png")
-                && endung.equalsIgnoreCase("jpg")
-                && endung.equalsIgnoreCase("jpeg"))
+                && !endung.equalsIgnoreCase("jpg")
+                && !endung.equalsIgnoreCase("jpeg"))
             //ist dies der Fall, gib ein entsprechendes fehler aus
             throw new Exception("Programm Unterstützt " +
                                 "folgendes Formate [.png, jpg, jpeg]!");
@@ -229,25 +229,48 @@ public class OOPCode {
         return sum;
     }
 
+    /**
+     * in der Methode bigEncode
+     * kann ich die größte OOPCode herausfinden
+     * und anzahl an notwendigen Rotationen
+     * @return die Größte OOPCode eines Objekt von typ
+     *         OOPCode.
+     */
     public int bigEncode(){
+        //summe
         int sum = 0;
+        //anzahl an Rotationen
         int az = 0;
+        //erstes encode
         int first = encode();
 
+        //while schleife
         while(true){
+            //aktuelle encode
             int current;
+            //erstmal rotieren
             rotiereBild();
+            //encode abrufen
             current = encode();
+            //prüfen ob, aktuelle encode
+            //größer als die summe für endcode ist
             if (current > sum){
+                //ja, speichern
                 sum = current;
+                //anzahl an Rotationen erhöhen
                 az++;
             }
 
+            //abgleich ob, erste endocde
+            //mit der aktuelle endcode übereinstimmt
             if (first == current){
+                //ja, unterbreche es
                 break;
             }
         }
+        //anzahl an Rotationen setzen
         setAnzahlRotationen(az);
+        //größte endcode zurückliefern
         return sum;
     }
 
@@ -284,6 +307,9 @@ public class OOPCode {
         return data;
     }
 
+    /**
+     * @param data OOPCode data überschreiben oder
+     */
     public void setData(Integer[][] data) {
         this.data = data;
     }
@@ -302,9 +328,17 @@ public class OOPCode {
         this.bool = b;
     }
 
+    /**
+     * @return wie viel mal rotiert wurde, um den Größten OOPCode
+     *         zu finden.
+     */
     public int getAnzahlRotationen() {
         return anzahlRotationen;
     }
+
+    /**
+     * @param anzahlRotationen wie viel mal rotiert wurde
+     */
     public void setAnzahlRotationen(int anzahlRotationen) {
         this.anzahlRotationen = anzahlRotationen;
     }

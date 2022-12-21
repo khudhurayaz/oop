@@ -7,5 +7,5 @@ package de.khudhur.internship.internship9.Arithmetik;
  * @author Ayaz Khudhur
  */
 public interface Rechenweg {
-    public double berechneErgebnis(double x, double y);
+    double berechneErgebnis(double x, double y);
 }
