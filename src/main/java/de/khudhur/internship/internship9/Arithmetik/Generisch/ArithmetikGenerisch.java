@@ -2,17 +2,17 @@ package de.khudhur.internship.internship9.Arithmetik.Generisch;
 
 /**
  *
- * Generische Klasse von Arithmetik
+ * Generische Klasse von ArithmetikGen
  * hier wird der Rechenweg bestimmt und berechnet.
  *
  * @version 1.0
  * @author Ayaz Khudhur
- * @param <T> Vererbt die Klasse Arithmetik {@link Arithmetik}.
+ * @param <T> Vererbt die Klasse ArithmetikGen {@link ArithmetikGen}.
  */
 
-public class ArithmetikGenerisch <T extends Arithmetik>{
+public class ArithmetikGenerisch <T extends ArithmetikGen>{
 
-    //Irgendeine Arithmetik Klasse wird hier gespeichert.
+    //Irgendeine ArithmetikGen Klasse wird hier gespeichert.
     T typ;
 
     //Typ setzen

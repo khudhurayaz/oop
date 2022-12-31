@@ -1,6 +1,7 @@
 package de.khudhur.internship.internship9.OOPCode;
 
 public class OOPCodeTest {
+
     private static final String PATH = "src/main/java/de/khudhur/internship/internship9/OOPCode/";
     public static void main(String[] args) throws Exception {
 

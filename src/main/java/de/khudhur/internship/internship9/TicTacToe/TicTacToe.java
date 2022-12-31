@@ -66,6 +66,7 @@ public class TicTacToe {
       if (feld[index] == 0) {
         // setzte an der index stelle eine 1 für X
         feld[index] = 1;
+        feldBesetzt = false;
       } else {
         // andernfalls ist die Stelle besetzt
         feldBesetzt = true;
@@ -78,13 +79,15 @@ public class TicTacToe {
       if (feld[index] == 0) {
         // setzte an der index stelle eine 2 für O
         feld[index] = 2;
+        feldBesetzt = false;
       } else {
         // andernfalls ist die Stelle besetzt
         feldBesetzt = true;
       }
     }
     // Zug umdrehen
-    zug = !zug;
+    if (!feldBesetzt)
+      zug = !zug;
   }
 
   /**
@@ -226,20 +229,34 @@ public class TicTacToe {
     }
   }
 
+  /**
+   * @return überprüft ob, das feld befüllt oder
+   *         noch nicht ist.
+   */
   private boolean isFeldFull(){
+    //summe
     int sum = 0;
+    //schleife durch feld
     for (int i = 0; i < feld.length; i++) {
+      //sobald feld nicht null ist
       if (feld[i] != 0){
+        //andernfalls um eins erhöhen
         sum += 1;
       }
     }
 
+    //überprüfe ob, sum und feld.length gleich sind
     if (sum == feld.length){
+      //gibts ja zurück
       return true;
     }
+    //ansonsten nein
     return false;
   }
 
+  /**
+   * User eingabe
+   */
   public void userInput() {
     boolean weiter = true;
     Scanner user = new Scanner(System.in);
@@ -313,4 +330,6 @@ public class TicTacToe {
       }
     }
   }
+
+
 }

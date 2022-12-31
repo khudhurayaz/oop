@@ -20,4 +20,5 @@ public class MatheAnwendung {
         arithmetik.bestimmeRechenweg(mal);
         System.out.println(arithmetik.berechne(4, 4)); //16
     }
+
 }

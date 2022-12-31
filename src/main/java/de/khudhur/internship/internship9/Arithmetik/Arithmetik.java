@@ -1,8 +1,9 @@
 package de.khudhur.internship.internship9.Arithmetik;
+
 /**
  * Arithemtik Klasse
  *
- * Die Arithmetik Klasse, beherbergt eine Methode,
+ * Die ArithmetikGen Klasse, beherbergt eine Methode,
  * berechne(double, double), in dieser Methode werden die berechnungen
  * durchgeführt.
  *

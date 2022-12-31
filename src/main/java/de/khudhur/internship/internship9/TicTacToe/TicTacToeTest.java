@@ -1,6 +1,7 @@
 package de.khudhur.internship.internship9.TicTacToe;
 
 public class TicTacToeTest {
+
   public static void main(String[] args) {
     TicTacToe ticTacToe = new TicTacToe();
 
@@ -41,4 +42,5 @@ public class TicTacToeTest {
     //davor löschen Sie bitte die restlichen Methoden.
     //ticTacToe.userInput();
   }
+
 }

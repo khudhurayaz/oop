@@ -1,6 +1,7 @@
 package de.khudhur.internship.internship9.Arithmetik;
+
 /**
- * Interface für die Arithmetik Klassen
+ * Interface für die ArithmetikGen Klassen
  * der interface beinhaltet nur die Methode
  * berechneErgebnis(double, double).
  * @version 1.0

@@ -4,7 +4,7 @@ package de.khudhur.internship.internship9.Arithmetik.Generisch;
  * @version 1.0
  * @author Ayaz Khudhur
  */
-public class RechenwegMinus extends Arithmetik {
+public class RechenwegMinusGen extends ArithmetikGen {
 
     /**
      * Methode für - Berechnung
