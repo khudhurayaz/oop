@@ -5,6 +5,7 @@ public class TicTacToeTest {
   public static void main(String[] args) {
     TicTacToe ticTacToe = new TicTacToe();
 
+    /**
     // initial
     ticTacToe.zeigeSpielfeld();
     // Spieler X
@@ -36,11 +37,12 @@ public class TicTacToeTest {
     ticTacToe.amZug();
     ticTacToe.macheZug(0, 2);
     ticTacToe.zeigeSpielfeld();
+     */
 
     //Sie können dieser Zeile auskommentieren
     //und man kann mit 2 Spieler TicTacToe spielen
     //davor löschen Sie bitte die restlichen Methoden.
-    //ticTacToe.userInput();
+    ticTacToe.userInput();
   }
 
 }
