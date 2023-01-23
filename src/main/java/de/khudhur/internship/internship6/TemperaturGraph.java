@@ -93,7 +93,6 @@ public class TemperaturGraph {
             System.out.println();
         }
 
-
         //x_axis
         System.out.print("\t");
         for (int j = 0; j < list.length; j++) {

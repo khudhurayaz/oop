@@ -8,7 +8,6 @@ public class RechenQuiz {
     private int result;
     private char operator = ' ';
 
-
     public void getExercise() {
         //Zufallszahl für operand 1
         operand1 = (int) (Math.random() * 21.0);

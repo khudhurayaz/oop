@@ -3,7 +3,6 @@ package de.khudhur.projects.exmatrikulation.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -18,10 +17,8 @@ public class ExmatrikulationController implements Initializable {
 
     @FXML
     private Text txtStatus;
-
     @FXML
     private VBox content;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -31,28 +28,25 @@ public class ExmatrikulationController implements Initializable {
             Stage main;
             main = (Stage) ((Node) e.getSource()).getScene().getWindow();
             Random random = new Random();
-            double w = main.getWidth() - ja.getWidth() - content.getMaxWidth();
-            double h = main.getHeight() - ja.getHeight() - content.getMaxHeight();
+            double w = main.getMinWidth() + ja.getPrefWidth() - content.getMaxWidth();
+            double h = main.getMinHeight() + ja.getPrefHeight() - content.getMaxHeight();
             double width = random.nextDouble() * w;
             double height = random.nextDouble() * h;
             boolean weiter = true;
 
             do {
                 if (width > content.getWidth() || height > content.getHeight() || width > main.getWidth() || height > main.getHeight()) {
-                    width = (double) random.nextDouble() * w;
-                    height = (double) random.nextDouble() * h;
+                    width = random.nextDouble() * w;
+                    height = random.nextDouble() * h;
                 }else {
                     weiter = false;
                 }
+                ja.setTranslateY(width - ja.getWidth());
+                ja.setTranslateX(height - ja.getHeight());
             }while (weiter);
 
-            ja.setTranslateY(width - ja.getWidth());
-            ja.setTranslateX(height - ja.getHeight());
-
             System.out.println("width: " + (width - ja.getWidth()) + "\nheight: " + (height - ja.getHeight()));
-            ja.setOnAction(actionEvent -> {
-                txtStatus.setText("Glückwunsch du hast Geschafft!");
-            });
+            ja.setOnAction(actionEvent -> txtStatus.setText("Glückwunsch du hast Geschafft!"));
         });
 
         Button nein = new Button("Nein");
@@ -62,12 +56,7 @@ public class ExmatrikulationController implements Initializable {
             Platform.exit();
             System.exit(1);
         });
-
-
         ja.getStyleClass().add("btnJa");
         content.getChildren().addAll(ja, nein);
-
-
     }
-
 }

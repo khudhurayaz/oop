@@ -4,7 +4,7 @@ public class PasswortGeneratorApp {
 
     public static void main(String[] args) throws Exception {
 
-        //PasswortGenerator ein objekt erstellen
+        //Ein objekt von PasswortGenerator erstellen
         PasswortGenerator pg = new PasswortGenerator();
 
         //methode erstellePasswort aufrufen für ersten Satz

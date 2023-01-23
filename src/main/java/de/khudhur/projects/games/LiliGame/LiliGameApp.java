@@ -1,6 +1,5 @@
 package de.khudhur.projects.games.LiliGame;
 
-import java.awt.Graphics;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 
@@ -21,6 +20,8 @@ public class LiliGameApp {
         frame.add(panel);
 
         // Zeige das Fenster an
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }

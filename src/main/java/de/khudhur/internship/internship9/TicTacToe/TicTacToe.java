@@ -43,6 +43,7 @@ public class TicTacToe {
     // wenn der feld besetzt ist, wird zurückgesetzt
     feldBesetzt = false;
     zug = true;
+    userInput();
   }
 
   /**
@@ -254,15 +255,22 @@ public class TicTacToe {
     return false;
   }
 
+  Scanner user = new Scanner(System.in);
   /**
    * User eingabe
    */
   public void userInput() {
     boolean weiter = true;
-    Scanner user = new Scanner(System.in);
     int sum = 0;
 
     while(weiter){
+      if (isFeldFull()) {
+        System.out.println("Die Felder sind voll! Anscheinend gab es einen Sieger oder war Unentschieden?!" +
+                "\nBitte schreib reset in der Konsole oder beende das Spiel!(Quit or Exit)");
+        Scanner erzwingen = new Scanner(System.in);
+        exit(erzwingen.nextLine());
+        return;
+      }
 
       // prüft ob, der feld komplett leer ist
       for (int j : feld) {
@@ -290,6 +298,8 @@ public class TicTacToe {
       Pattern pattern = Pattern.compile(regex);
       Matcher matcher = pattern.matcher(nextLine);
 
+      exit(nextLine);
+
       //abfrage, wenn eins davon trifft wird sich die
       //while-Schleife wiederholen
       if (nextLine.equalsIgnoreCase("") || nextLine.isBlank() || nextLine.isEmpty() || matcher.find()){
@@ -309,27 +319,27 @@ public class TicTacToe {
       //Wenn spieler reset eingeben, soll sich das Spiel Neustarten.
       //Falls nicht, wird das Spiel automatisch beendet.
       if (pruefe() || isFeldFull()){
-        //user eingabe
-        String input = user.nextLine();
-        if (input.equalsIgnoreCase("reset") || input.equalsIgnoreCase("reset()")){
-          System.out.println("\n\n\n\n\n\n\n\n\n");
-          reset();
-        }else{
-          System.out.println("Das Spiel wird sich nun Beenden!");
-          System.out.println("Keine eingabe wurde erkannt!");
-          reset();
+        Scanner s = new Scanner(System.in);
+        //prüft ob, der user das Spielbeenden möchte
+        if (exit(s.nextLine())){
+          weiter = false;
         }
-
-      }
-
-      //prüft ob, der user das Spielbeenden möchte
-      if (nextLine.equalsIgnoreCase("exit") || nextLine.equalsIgnoreCase("e") ||
-              nextLine.equalsIgnoreCase("quit") || nextLine.equalsIgnoreCase("q")) {
-        System.out.println("Das Spiel wird sich nun Beenden!");
-        reset();
       }
     }
   }
 
-
+  private boolean exit(String input){
+    //prüft ob, der user das Spielbeenden möchte
+    if (input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("quit")) {
+      System.out.println("Das Spiel wird sich nun Beenden!");
+      System.exit(0);
+      return true;
+    }
+    if (input.equalsIgnoreCase("reset") || input.equalsIgnoreCase("reset()")){
+      System.out.println("\n\n\n\n\n\n\n\n\n");
+      reset();
+      return true;
+    }
+    return false;
+  }
 }

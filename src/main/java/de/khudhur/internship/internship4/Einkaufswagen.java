@@ -10,7 +10,7 @@ public class Einkaufswagen {
 
     /**
      * Wenn es mehr als 5 Artikel sind,
-     * wird ein entsprechendes Error ausgegeben.
+     * wird ein entsprechendes ErrorIcons ausgegeben.
      * @param item Artikel im Einkaufswagen hinzufügen
      */
     public void addToCart(String item) {

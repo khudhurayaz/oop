@@ -1,9 +1,7 @@
 package de.khudhur.internship.internship3;
 
 public class Bild {
-
     private int[][] bild; //Zweidimensionales Array
-
 
     /**
      * @return neues Array wird zurückgeliefert

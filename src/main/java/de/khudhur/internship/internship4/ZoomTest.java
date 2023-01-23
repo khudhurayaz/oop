@@ -10,11 +10,11 @@ public class ZoomTest {
         //Erste Zoom objekt für test 1
         Zoom zoom = new Zoom(testbild1);
         //output testbild 1
-        ausgabe(3, zoom, "Testbild 1");
+        ausgabe(4, zoom, "Testbild 1");
         //Erste Zoom objekt für test 1
         Zoom zoom1 = new Zoom(testbild2);
         //output testbild 2
-        ausgabe(3, zoom1, "Testbild 2");
+        ausgabe(4, zoom1, "Testbild 2");
 
     }
 

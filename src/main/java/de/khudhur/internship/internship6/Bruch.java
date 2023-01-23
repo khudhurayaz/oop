@@ -24,7 +24,7 @@ public class Bruch {
     public Bruch add(Bruch f) {
 
         if (getZaehler() == 0 || getNenner() == 0) {
-            System.err.println("Darf nullen nicht enthalten!");
+            System.err.println("Dürfen nullen nicht enthalten!");
         }
 
         //Temporär

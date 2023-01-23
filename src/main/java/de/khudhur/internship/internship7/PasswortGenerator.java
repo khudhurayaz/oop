@@ -39,16 +39,16 @@ public class PasswortGenerator {
         String[] arrayPasswort = passwort.split(regex);
 
         //zusammenfügen in einem Satz
-        String satz = "";
+        StringBuilder satz = new StringBuilder();
         for (String str : arrayPasswort) {
-            satz += str;
+            satz.append(str);
         }
 
         //trennen durch leerzeichen
-        String[] woerter = satz.split(" ");
+        String[] woerter = satz.toString().split(" ");
         //nur die ersten Buchstaben speichern
         String[] erstenBuchstaben = new String[woerter.length];
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (int i = 0; i < woerter.length; i++) {
             erstenBuchstaben[i] = woerter[i].substring(0,1);
         }
@@ -57,14 +57,14 @@ public class PasswortGenerator {
         for (int i = 0; i < erstenBuchstaben.length; i++){
             //prüft ob, i gerade ist oder nicht
             if (i % 2 == 0){
-                str += erstenBuchstaben[i].toLowerCase();
+                str.append(erstenBuchstaben[i].toLowerCase());
             }else {
-                str += erstenBuchstaben[i].toUpperCase();
+                str.append(erstenBuchstaben[i].toUpperCase());
             }
         }
 
         //neues passwort übergeben
-        this.passwort = str;
+        this.passwort = str.toString();
 
     }
 

@@ -10,57 +10,120 @@ import java.util.Random;
  * @author Ayaz Khudhur
  */
 
-public class Leinwand extends JPanel implements Runnable{
+public class Leinwand extends JPanel{
 
+    //autor
     private String autor;
+    //fenster breite und höhe
     private int width, height;
+    //boolean für santa, tannenbaum, wald, tannenbaumcolorgreen
     private boolean showSanta, isTannenbaum, isWald, tannenbaumColorGreen = false;
+    //objekt santa
+    private Santa santa;
+    //timer objekt
+    private Timer timer;
 
-    private int x = 0, y = 0, dx = 1;
-    private MoveImage moveImage;
-    private Thread thread;
-
+    /**
+     * Konstruktor
+     * @param width fenster breite
+     * @param height fenster höhe
+     */
     public Leinwand(int width, int height){
-        this.width = width;
-        this.height = height;
-        setLayout(new FlowLayout());
-        setSize(width, height);
-        setBackground(Color.GRAY);
+        this.width = width;//setzen
+        this.height = height;//setzen
+        setLayout(new FlowLayout()); //layout
+        setSize(width, height);//größe
+        setBackground(Color.GRAY); //panel farbe
+        setFocusable(true);//focus
 
-        thread = new Thread("Leinwand");
-        thread.start();
+        //spiel initialisieren
+        initGame();
     }
 
-    private void startSanta(){
-        if (isShowSanta()){
-            Timer timer = new Timer(10, e -> {
-                x += dx;
-                repaint();
-            });
-            timer.start();
+    /**
+     * Game initialisieren
+     * objekte laden
+     * timer initialisieren
+     *  santa game starten und neu laden
+     */
+    private void initGame(){
+        createGameObjects();
+        timer = new Timer(1000, e -> {
+            santa.game();
+            santa.start();
+            repaint();
+        });
+    }
+
+    /**
+     * game objekten erstellen
+     */
+    private void createGameObjects(){
+        //santa objekt erstellen
+        santa = new Santa("src/main/java/de/khudhur/internship/internship10/assets/santa.png", 64, 64);
+    }
+
+    /**
+     * game starten bzw. Timer
+     */
+    private void startGame(){
+        timer.start();
+    }
+
+    /**
+     * game pausieren, bzw Timer stoppen
+     */
+    private void endGame(){
+        timer.stop();
+        santa.setX(0);
+        if (santa != null){
+            santa.clear(getGraphics());
         }
     }
 
+    //override methode fürs zeichnen
     @Override
-    public void paint(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
         //setze hintergrund in Schwarz
         setBackground(Color.black);
 
         //zeichne Sterne
-        drawStars(g);
+        boolean bStar = drawStars(g);
 
+        boolean bTannen = false, bWald = false;
         //tannenbaum
-        if (isTannenbaum())
+        if (isTannenbaum()) {
             tannenbaum(g);
+            bTannen = true;
+        }
 
         //wald
-        if (isWald())
+        if (isWald()) {
             wald(g);
+            bWald = true;
+        }
 
-        //Santa
+        //Santa angekreuzt
         if (isShowSanta()) {
-            santa(g);
+            //ist schon wald oder Tannenbaum gezeichnet?
+            if (bTannen || bWald){
+                //nicht noch mal Zeichnen
+                setIgnoreRepaint(false);
+            }
+            if (bStar){
+                //sterne nicht noch mal Zeichnen
+                setIgnoreRepaint(true);
+            }
+
+            //Santa game starten
+            startGame();
+            //santa zeichnen
+            santa.paintComponent(g);
+        }else {
+            //falls nicht angekreuzt wurde, game beenden
+            endGame();
         }
 
         //Autor
@@ -70,15 +133,18 @@ public class Leinwand extends JPanel implements Runnable{
         g.drawString(getAutor(), getWidth() - (getAutor().length() * 8) - 30 , 50);
     }
 
-    private void santa(Graphics g){
-        moveImage = new MoveImage("src/main/java/de/khudhur/internship/internship10/assets/santa.png", 64, 64);
-        moveImage.paintComponent(g);
-    }
-
+    /**
+     * wald zeichnen
+     * @param g Graphics
+     */
     public void wald(Graphics g){
+        //Alle bäume, sind nicht grün
         tannenbaumColorGreen = false;
+        //zeichne 40 Bäume
         for (int i = 0; i < 40; i++) {
+            //baum position random
             int x = new Random().nextInt(getWidth() + 1);
+            //baum zeichnen
             drawTannenbaum(g, x-100, -(getHeight()-100));
         }
     }
@@ -87,25 +153,43 @@ public class Leinwand extends JPanel implements Runnable{
      * Um die Methode außerhalb zugreifen zu können
      */
     public void tannenbaum(Graphics g){
-        Random random = new Random();
-        int x = random.nextInt(getWidth() + 1);
+        //baum ist grün
         tannenbaumColorGreen = true;
-        drawTannenbaum(g, x-50, -(getHeight() - 100));
+        //baum zeichnen
+        drawTannenbaum(g, 130, -(getHeight() - 100));
     }
 
-    public void drawStars(Graphics g) {
+    /**
+     * Sterne zeichnen
+     * @param g Graphics
+     * @return true die sterne sind gezeichnet, falls
+     *              die methode aufgerufen wird.
+     */
+    public boolean drawStars(Graphics g) {
+        //Farbe weis
         g.setColor(Color.WHITE);
+        //100 mal aufrufen
         for (int i = 0; i < 100; i++) {
+            //zufalls position
             int x = (int)(Math.random() * getWidth());
             int y = (int)(Math.random() * (getHeight()/2));
+            //zeichnen
             g.fillOval(x, y, 5, 5);
         }
+        return true;
     }
 
+    //lösche Leinwand
     public void clear(Graphics g){
         g.clearRect(0, 0, getWidth(), getHeight());
     }
 
+    /**
+     * Zeichne ein tannenbaum
+     * @param g Graphics
+     * @param x position
+     * @param y position
+     */
     private void drawTannenbaum(Graphics g, int x, int y){
 
         //Zufalls farben
@@ -148,58 +232,58 @@ public class Leinwand extends JPanel implements Runnable{
             yPoints3[i] -= y;
         }
 
+        //polygon initialisieren
         pol = new Polygon(xPoints, yPoints, xPoints.length);
         pol1 = new Polygon(xPoints2, yPoints2, xPoints2.length);
         pol2 = new Polygon(xPoints3, yPoints3, xPoints3.length);
 
+        //ist Tannenbaum grün?
         if (tannenbaumColorGreen){
             g2d.setColor(Color.GREEN);
         }
+
+        //zeichnen
         g2d.fillPolygon(pol);
         g2d.fillPolygon(pol1);
         g2d.fillPolygon(pol2);
     }
 
-    @Override
-    public void run() {
-        moveImage.repaint(this);
-        System.out.println("start");
-        repaint();
-        try {
-            Thread.sleep(100);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
+    //setAutor
     public void setAutor(String autor){
         this.autor = autor;
     }
 
+    //getAutor
     public String getAutor(){
         return autor;
     }
 
+    //isTannenbaum - ob Tannenbaum aktiviert wurde
     public boolean isTannenbaum() {
         return isTannenbaum;
     }
 
+    //Tannenbaum - zustand
     public void setTannenbaum(boolean tannenbaum) {
         isTannenbaum = tannenbaum;
     }
 
+    //isWald - ob wald aktiviert wurde
     public boolean isWald() {
         return isWald;
     }
 
+    //wald - zustand
     public void setWald(boolean wald) {
         isWald = wald;
     }
 
+    //santa ist sichtbar?
     public boolean isShowSanta() {
         return showSanta;
     }
 
+    //santa - zustand
     public void setShowSanta(boolean showSanta) {
         this.showSanta = showSanta;
     }

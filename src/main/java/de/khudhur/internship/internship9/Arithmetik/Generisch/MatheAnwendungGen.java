@@ -11,7 +11,7 @@ package de.khudhur.internship.internship9.Arithmetik.Generisch;
  */
 public class MatheAnwendungGen {
     public static void main(String[] args){
-        //Kleines Test Beispiel
+        //Kleines StackTest Beispiel
         ArithmetikGenerisch<ArithmetikGen> gen = new ArithmetikGenerisch<ArithmetikGen>();
         gen.setTyp(new RechenwegPlusGen());
         System.out.println(gen.berechne(2.0, 2.0)); //4

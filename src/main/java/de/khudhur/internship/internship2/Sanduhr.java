@@ -3,7 +3,7 @@ package de.khudhur.internship.internship2;
 public class Sanduhr {
 
     public static void main(String[] args) {
-        printSanduhr(4);
+        printSanduhr(5);
     }
 
     //leerzeichen für die erste durchlauf
