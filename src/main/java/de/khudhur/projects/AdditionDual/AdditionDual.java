@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class AdditionDual {
     public static void main(String[] args) {
-        String add1 = "";
-        String add2 = "";
+        String add1;
+        String add2;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Addition Binär 1: ");
         add1 = scanner.nextLine();
@@ -24,7 +24,6 @@ public class AdditionDual {
 
         //prüfung
         for (int i = 0; i < array1.length; i++) {
-            int uebertragung = 0;
             if (array1[i] == '0' && array2[i] == '0' || array2[i] == '0' && array1[i] == '0'){
                 sum.append(0);
             }
@@ -32,12 +31,7 @@ public class AdditionDual {
                 sum.append(1);
             }
             if (array1[i] == '1' && array2[i] == '1' || array2[i] == '1' && array1[i] == '1'){
-                if (uebertragung == 1){
-                    sum.append(1);
-                }else {
-                    sum.append(0);
-                }
-                uebertragung = 1;
+                sum.append(0);
             }
         }
 
