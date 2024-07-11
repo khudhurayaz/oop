@@ -41,6 +41,9 @@ public class GamePanel extends JPanel{
     private JPanel panelRight, panelGame;
 
 
+    final boolean[] chkPlayerIfUserInit = {false};
+
+
     /**
      * Panel Konstruktor
      * setzt die größe ein und Focus.
@@ -114,11 +117,10 @@ public class GamePanel extends JPanel{
         panelGame.setLayout(new BorderLayout());
         panelGame.setMinimumSize(new Dimension(prefSize.width-400, prefSize.height));
         panelGame.setOpaque(false);
-
         panelGame.add(objects, BorderLayout.CENTER);
-
         //add panel
         add(panelGame, BorderLayout.CENTER);
+        panelGame.setEnabled(false);
     }
 
     /**
@@ -180,7 +182,6 @@ public class GamePanel extends JPanel{
         String ergb = "Ergebnis:";
         JLabel lblAktion = new JLabel(ergb + "-");
         JButton jButton = new JButton("Würfeln");
-        final boolean[] gedrueckt = {false};
 
         jButton.addActionListener(e -> {
             Timer textFirst = new Timer(10, first -> {
@@ -198,7 +199,7 @@ public class GamePanel extends JPanel{
                 lblAktion.setText(ergb + objects.getRandom());
             }
             objects.setPlayerText();
-            gedrueckt[0] = true;
+            chkPlayerIfUserInit[0] = true;
 
             Timer timer1 = new Timer(10, s -> {
                 lblRitter.setText(objects.getRitter().info());

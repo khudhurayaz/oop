@@ -7,8 +7,9 @@ public class GeneratorApp {
                                     .useLower(true)
                                     .useUpper(true)
                                     .useDigits(true)
+                                    .usePunctuation(true)
                                     .build()
-                                    .generate(20);
+                                    .generate(12);
 
         System.out.println("Password: " + password);
     }

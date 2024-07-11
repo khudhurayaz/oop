@@ -14,7 +14,7 @@ public class Artikel{
     /**
      * Der Konstruktor ist mit zwei
      * Parametern verfügbar. Die Parameter
-     * werden gespeichert, um von unterklassen verarbeitet
+     * werden gespeichert, um von unterklassen verarbeitet zu
      * werden.
      *
      * @param artikelNummer artikelnummer von einem Produkt, dies kann

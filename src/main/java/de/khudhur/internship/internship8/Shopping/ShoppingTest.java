@@ -9,7 +9,7 @@ public class ShoppingTest {
 
   public static void main(String[] args) {
 
-    /**
+    /*
     * Warenkorb
     * hier können wir unseren gekauften Artikeln speichern oder entfernen lassen.
     * warenkorb wird mit null initialisiert, ein produkt wird von jedem Artikel,

@@ -11,7 +11,7 @@ public class Ratespiel {
 
     private static void rateZahl() {
         int randomNumber = (int) (Math.random() * 101.0); // [0..100]
-        int userNumber = 0;
+        int userNumber;
         int anzahlAnVersuchen = 0;
         Scanner scanner = new Scanner(System.in);
 

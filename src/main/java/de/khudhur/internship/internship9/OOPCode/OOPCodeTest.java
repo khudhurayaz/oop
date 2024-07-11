@@ -7,7 +7,7 @@ public class OOPCodeTest {
 
         //Für Zahlen, wenn Bild nicht vorhanden ist 3x3
         OOPCode codeFuer3 = new OOPCode(3);
-        Codes<Boolean> codesFuer3 = new Codes<Boolean>(codeFuer3.getBool());
+        Codes<Boolean> codesFuer3 = new Codes<>(codeFuer3.getBool());
         //schwarze pixel setzen
         codesFuer3.setCode(1,1,true);
         //zweite schwarze pixel setzen
@@ -27,7 +27,7 @@ public class OOPCodeTest {
 
         //Für Zahlen, wenn Bild nicht vorhanden ist 4x4
         OOPCode codeFuer4 = new OOPCode(4);
-        Codes<Boolean> codesFuer4 = new Codes<Boolean>(codeFuer4.getBool());
+        Codes<Boolean> codesFuer4 = new Codes<>(codeFuer4.getBool());
         codesFuer4.setCode(1,1,true);
         codesFuer4.setCode(2,2,true);
         codeFuer4.setBool(codesFuer4.getCode());

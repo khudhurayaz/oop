@@ -33,11 +33,8 @@ public class GGT {
             b = Integer.parseInt(strB);
 
             //abfrage ob, in a und b nur positiven werten sind
-            if (pruefe(a, b)) {
-                continue;
-            }else {
+            if (!pruefe(a, b))
                 weiter = false;
-            }
         }
 
         //ggT errechnen
@@ -59,7 +56,7 @@ public class GGT {
     public static boolean pruefe(int...zahl){
         boolean weiter = false;
         for (int i : zahl) {
-            if (i == 0 || i == -1){
+            if (i == 0 || i <= -1){
                 int option = JOptionPane.showConfirmDialog(
                         null,
                         "Dürfen nullen oder negativen Zahlen nicht enthalten!",

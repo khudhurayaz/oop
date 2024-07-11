@@ -10,24 +10,22 @@ public class Rahmen {
         //Temporär String array
         String[] texts = new String[text.length];
         //in temp: texts überschreiben
-        for (int i = 0; i < text.length; i++) {
-            texts[i] = text[i];
-        }
+        System.arraycopy(text, 0, texts, 0, text.length);
 
         //Längste Zeile finden
         //variable length, für oben und unten sternen.
         int len = 0;
         //for-schleife
-        for (int i = 0; i < texts.length; i++) {
-            for (int j = 0; j < texts.length-1; j++) {
+        for (String s : texts) {
+            for (int j = 0; j < texts.length - 1; j++) {
                 //erste prüfung, wenn texts[i].length() 'Rahmen' > texts[j].length() 'sind' ist.
                 //wird beim zweiten prüfung nochmal überprüft ob
                 //texts[i].length() 'Rahmen' //ändert sich nach jedem i durchlauf
                 //größer als gespeichertes length - 'len' ist.
-                if (texts[i].length() > texts[j+1].length()){
-                    if (texts[i].length() > len){
+                if (s.length() > texts[j + 1].length()) {
+                    if (s.length() > len) {
                         //dann erst abspeichern
-                        len = texts[i].length();
+                        len = s.length();
                     }
                 }
             }
@@ -39,9 +37,9 @@ public class Rahmen {
         stern = starForTopAndBottom(stern.length);
 
         //sterne verketten
-        String sterne = "";
-        for (int i = 0; i < stern.length; i++) {
-            sterne += stern[i] + "";
+        StringBuilder sterne = new StringBuilder();
+        for (char c : stern) {
+            sterne.append(c);
         }
 
         for (int i = 0; i < texts.length; i++) {

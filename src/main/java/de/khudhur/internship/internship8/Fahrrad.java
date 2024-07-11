@@ -18,7 +18,6 @@ public class Fahrrad {
     /**
      * Der Konstruktor wird mit zwei (int) Variablen initialisiert,
      * die zwei parametern sind sehr wichtig für ein Fahrrad.
-     *
      * Erste Parameter, um ein Fahrrad zu beladen und um daraus
      * die Geschwindigkeit zu errechnen können.
      *

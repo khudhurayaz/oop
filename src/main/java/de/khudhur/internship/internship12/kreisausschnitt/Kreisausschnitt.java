@@ -14,7 +14,7 @@ import java.util.Hashtable;
  */
 public class Kreisausschnitt extends JFrame{
     //Panel größe
-    private Dimension dimension = new Dimension(800, 700);
+    private final Dimension dimension = new Dimension(800, 700);
 
     /**
      * GUI für Kreisauschnitt
@@ -38,7 +38,7 @@ public class Kreisausschnitt extends JFrame{
         //Normal schlissen, minimieren und maximieren
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //nicht vergrößbar
-        setResizable(false);
+        setResizable(true);
         //BorderLayout wird verwendet
         setLayout(new BorderLayout());
     }

@@ -6,7 +6,7 @@ import java.util.List;
 public class Einkaufswagen {
 
     //private liste für einkaufswagen
-    private List<String> cart = new ArrayList<>();
+    private final List<String> cart = new ArrayList<>();
 
     /**
      * Wenn es mehr als 5 Artikel sind,
@@ -17,7 +17,7 @@ public class Einkaufswagen {
         if (cart.size() >= 5) {
             System.err.println("Es haben leider nicht alle einen Platz! {" + item + "}"); //error
         }else {
-            if (!item.equalsIgnoreCase(" ") && item.length() != 0){
+            if (!item.equalsIgnoreCase(" ") && !item.isEmpty()){
                 cart.add(item); //Add to cart
             }
         }

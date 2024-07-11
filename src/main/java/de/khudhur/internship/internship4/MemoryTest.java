@@ -6,7 +6,7 @@ public class MemoryTest {
         //Objekt von Memory erstellen
         Memory memory = new Memory();
         // die Methode generateField in ein 2D Array weisen
-        int[][] list = memory.generateField(6);
+        int[][] list = memory.generateField(3);
         // Hilfsmethode für eine generierte Ausgabe
         memory.ausgabe(list);
     }

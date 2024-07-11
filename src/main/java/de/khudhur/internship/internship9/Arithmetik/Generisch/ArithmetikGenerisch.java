@@ -12,7 +12,7 @@ package de.khudhur.internship.internship9.Arithmetik.Generisch;
 
 public class ArithmetikGenerisch <T extends ArithmetikGen>{
 
-    //Irgendeine ArithmetikGen Klasse wird hier gespeichert.
+    //Irgendein Arithmetikgen Klasse wird hier gespeichert.
     T typ;
 
     //Typ setzen

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class StackAdapter<T>{
 
     //interne ArrayList
-    private ArrayList<T> list;
+    private final ArrayList<T> list;
 
     /**
      * Konstruktor die es list initialisiert

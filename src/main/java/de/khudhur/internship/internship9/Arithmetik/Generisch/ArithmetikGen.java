@@ -1,8 +1,7 @@
 package de.khudhur.internship.internship9.Arithmetik.Generisch;
 
 /**
- * Arithemtik Klasse
- *
+ * Arithmetic class.
  * Die ArithmetikGen Klasse ist abstrakt und beherbergt eine Methode,
  * berechne(double, double), in dieser Methode werden die berechnungen
  * durchgeführt.

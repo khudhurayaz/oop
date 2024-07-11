@@ -49,11 +49,11 @@ public class Zoom {
      * @return ob die bedienung für die Grauwerte zu treffen
      */
     private boolean pruefen(int[][] pixelPicOrg) {
-        for (int i = 0; i < pixelPicOrg.length; i++) {
+        for (int[] ints : pixelPicOrg) {
             for (int j = 0; j < pixelPicOrg[0].length; j++) {
                 //Prüfe, ob nicht die werte größer oder gleich 8 sind
                 //sowie, ob die werte nicht negativ sind
-                if (pixelPicOrg[i][j] >= 8 || pixelPicOrg[i][j] < 0) return true;
+                if (ints[j] >= 8 || ints[j] < 0) return true;
             }
         }
         return false;

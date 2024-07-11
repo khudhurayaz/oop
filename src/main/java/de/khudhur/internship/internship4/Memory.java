@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Memory {
 
     /**
-     * @param n um ein n Einträge als mehrdimensionales Array erzeugen kann.
-     * @return Rückgabewert ist ein mehrdimensionales Array (Generiertes Spielfeld)
+     * @param n um ein nxn Einträge als mehrdimensionales Array erzeugen kann.
+     * @return Rückgabewert ist eines mehrdimensionales Array (Generieren Spielfeld)
      */
     public int[][] generateField(int n) {
         int nf; // Falls n ungerade ist

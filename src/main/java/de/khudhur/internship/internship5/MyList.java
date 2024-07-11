@@ -1,5 +1,7 @@
 package de.khudhur.internship.internship5;
 
+import java.util.Objects;
+
 public class MyList {
 
     private int[] array; //neues liste
@@ -48,7 +50,7 @@ public class MyList {
         }else {
             //andernfalls, wird der Array verlängert und eins
             //nach rechts verschoben. Außerdem entfernt alle nullen
-            setArray(removeAllZeros(extend(array, index, item)));
+            setArray(removeAllZeros(Objects.requireNonNull(extend(array, index, item))));
         }
 
     }
@@ -141,9 +143,7 @@ public class MyList {
         capacity = (capacity - remove);
         //Neuen Elementen überschreiben
         int[] newArray = new int[elements];
-        for (int i = 0; i < newArray.length; i++) {
-            newArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, newArray, 0, newArray.length);
         //neues array mit der alten array überschreiben.
         setArray(removeAllZeros(newArray));
         return remove;
@@ -178,9 +178,9 @@ public class MyList {
     private int[] removeAllZeros(int[] tempArray) {
         //länge ohne nullen finden
         int len = 0;
-        for (int i = 0; i < tempArray.length; i++) {
+        for (int k : tempArray) {
             //alles was nicht null ist
-            if (tempArray[i] != 0){
+            if (k != 0) {
                 len++;//eins erhöhen
             }
         }
@@ -200,8 +200,7 @@ public class MyList {
     }
 
     /**
-     * Hilfsmethode
-     *
+     * Hilfsmethode.
      * Array wird dynamisch!
      * Sobald die methode aufgerufen wird, wird der aktuelle Array um eins erhöht.
      */
@@ -215,10 +214,8 @@ public class MyList {
             //wird initialisiert.
             temp = new int[capacity+1];
             if (capacity > 0) { //kapazität größer als null
-                for (int i = 0; i < array.length; i++) {
-                    //neues array überschreiben
-                    temp[i] = array[i];
-                }
+                //neues array überschreiben
+                System.arraycopy(array, 0, temp, 0, array.length);
             }
         }
 

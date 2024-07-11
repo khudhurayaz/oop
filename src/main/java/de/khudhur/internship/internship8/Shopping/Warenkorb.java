@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Warenkorb {
 
   //Variable ArrayList - artikelListe
-  private ArrayList<Artikel> artikelListe = new ArrayList<Artikel>();
+  private final ArrayList<Artikel> artikelListe = new ArrayList<>();
 
   /**
    * @param artikel Artikeln hinzufügen
@@ -27,15 +27,12 @@ public class Warenkorb {
   }
 
   /**
-   * ZeigeWarenkorb
-   *
+   * ZeigeWarenkorb.
    * double variable für gesamtPreis
    * for schleife
    *  -> artikel preise summieren
-   *
    * for schleife
    *  -> Artikel getInfo methode aufrufen
-   *
    * Gesamtpreis ausgeben und zweistellen nach komma
    * ausgeben
    */

@@ -26,6 +26,8 @@ public class BildTest {
      //man könnte auch rotieren und auslesen die Daten werden im Horizontal
      //mehr sein als vertikal
      bild.rotiereBild();
+     bild.rotiereBild();
+     bild.rotiereBild();
      //Bild im verzeichnis speichern
      bild.schreibeBild("verzeichnis");
 

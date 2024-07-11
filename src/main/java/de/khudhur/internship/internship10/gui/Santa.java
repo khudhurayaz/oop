@@ -29,7 +29,7 @@ public class Santa extends JPanel{
         try {
             image = ImageIO.read(new File(path));
         }catch (IOException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
     }
