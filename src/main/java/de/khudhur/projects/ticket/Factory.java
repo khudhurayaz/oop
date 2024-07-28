@@ -21,22 +21,20 @@ class SemesterTicket extends Ticket{
 }
 
 public class Factory {
-    private Factory(){
-
-    }
+    private Factory(){}
 
     public static Ticket getTicket(String wunsch, int cent){
-        if (wunsch.matches("Kurz.*") && cent == 240){
+        if (wunsch.matches("Kurz.*") && cent >= 240){
             return new KurzStrecke();
         }
-        if (wunsch.matches("Sem.*|Stud.*") && cent == 5600){
+        if (wunsch.matches("Sem.*|Stud.*") && cent >= 5600){
             return new SemesterTicket();
         }
         return null;
     }
 
     public static void main(String[] args) {
-        Ticket ticketStudi = Factory.getTicket("Studenten Ticket", 5600);
+        Ticket ticketStudi = Factory.getTicket("Sem Ticket", 5600);
         assert ticketStudi != null;
         System.err.println(ticketStudi.getInfo());
     }
